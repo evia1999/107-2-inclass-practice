@@ -25,3 +25,17 @@ a +3 ->c
 `20190328concert` <- 1930
 ```
 
+# numeric class
+
+```{r}
+class(a)
+```
+
+```{r}
+a<- 6
+a2<-6L
+```
+
+```{R}
+class(a2)
+```
