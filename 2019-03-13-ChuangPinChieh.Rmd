@@ -9,3 +9,19 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+a <- 2
+```
+
+```{r}
+3 -> b
+```
+
+```{r}
+a +3 ->c
+```
+
+```{r}
+`20190328concert` <- 1930
+```
+
