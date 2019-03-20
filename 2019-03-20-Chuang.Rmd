@@ -1,0 +1,102 @@
+---
+title: '2019-03-20'
+author: ""
+date: "3/20/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+dialogue <- c('小明說："明天不用上課。"',
+               '小花說："真的嗎？"')
+
+cat(dialogue, sep="\n")
+```
+
+```{r}
+dialogue <- c("小明說：'明天不用上課。' " ,
+              "小花說：'真的嗎？' " )
+
+cat(dialogue, sep="\n")
+```            
+
+```{r}
+aLogical <- c(T,TRUE,F,FALSE,FALSE)
+class(aLogical)
+```
+
+```{r}
+sum(aLogical)
+```
+
+```{r}
+aLogical <- c(T,F,FALSE,TRUE,T)
+class(aLogical)
+```
+
+```{r}
+sum(aLogical)
+```
+
+```{r}
+studentMajors <- factor(
+  c("經濟系", "經濟系", "法律系")
+)
+```
+
+```{r}
+class(studentMajors)
+```
+
+```{r}
+levels(studentMajors)
+```
+
+```{r}
+typeof(studentMajors)
+```
+
+```{r}
+as.integer(studentMajors)
+```
+
+```{r}
+birthplace <- factor(
+  c("台北市", "台中市", "台中市","台北市","台北市")
+)
+```
+
+```{r}
+class(birthplace)
+```
+
+```{r}
+levels(birthplace)
+```
+
+```{r}
+typeof(birthplace)
+```
+
+```{r}
+as.integer(birthplace)
+```
+
+```{r}
+stringInteger <- c("1","2","-11")
+class(stringInteger) 
+```
+
+```{r}
+trueInteger <- as.integer(stringInteger)
+class(trueInteger)
+```
+
+```{r}
+stringInteger
+trueInteger
+```
+
