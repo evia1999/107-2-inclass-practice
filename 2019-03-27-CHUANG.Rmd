@@ -35,7 +35,13 @@ LisbonDateTime
 ```
 
 ```{r}
-dtObject<-ymd_hms("1999-07-01 03:47:23") 
+typeof((twDateTime))
+as.double((twDateTime))
+as.double(LisbonDateTime)
+```
+
+```{r}
+dtObject<-ymd_hms("1999-07-01 03:47:23") ㄎ
 ```
 
 ```{r}
@@ -56,4 +62,37 @@ FaroeDateTime <- with_tz(twDateTime,tzone="Atlantic/Faroe")
 FaroeDateTime
 ```
 
+```{r}
+typeof(twDateTime)
+as.double(twDateTime)
+as.double(VientianeDateTime)
+as.double(FaroeDateTime)
+```
+
+```{r}
+dtObject<- mdy_hms("3/14/2019 08:18:47")
+dtObject
+```
+
+```{r}
+twDateTime<- mdy_hms("3/14/2019 08:18:47")
+
+twDateTime
+```
+
+```{r}
+dtObject<- ymd("2018-09-11")
+dtObject
+```
+
+```{r}
+dtObject<- mdy("March 3, 2019")
+dtObject
+```
+
+```{r}
+as.integer(ymd("1970-01-01"))
+as.integer(ymd("1970-01-02")) 
+as.integer(ymd("2019-03-11")) 
+```
 
