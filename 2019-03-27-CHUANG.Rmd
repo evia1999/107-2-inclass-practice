@@ -1,6 +1,6 @@
 ---
 title: '2019-03-27'
-author: "林茂廷"
+author: "莊品婕"
 date: "3/27/2019"
 output: html_document
 ---
@@ -49,4 +49,11 @@ VientianeDateTime <- with_tz(twDateTime,tzone="Asia/Vientiane")
 
 VientianeDateTime
 ```
+
+```{r}
+FaroeDateTime <- with_tz(twDateTime,tzone="Atlantic/Faroe")
+
+FaroeDateTime
+```
+
 
