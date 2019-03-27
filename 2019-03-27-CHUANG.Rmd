@@ -81,18 +81,99 @@ twDateTime
 ```
 
 ```{r}
-dtObject<- ymd("2018-09-11")
-dtObject
+lastyear<- ymd("2018-09-11")
+lastyear
 ```
 
 ```{r}
-dtObject<- mdy("March 3, 2019")
-dtObject
+fewdaysago<- mdy("March 3, 2019")
+fewdaysago
 ```
 
 ```{r}
 as.integer(ymd("1970-01-01"))
 as.integer(ymd("1970-01-02")) 
 as.integer(ymd("2019-03-11")) 
+```
+
+```{r}
+a <- c(1, 5, -3)
+b <- c(0.5, 12, 2)
+```
+
+```{r}
+a-b
+a+b
+a*b
+a/b
+```
+
+```{r}
+aL <- c(1L, 5L, -3L)
+bL <- c(-2L, -4L, 8L)
+```
+
+```{r}
+a+aL
+class(a+aL)
+
+aL-bL
+class(aL-bL)
+
+```
+
+```{r}
+a
+a+5
+a-2
+a*4
+a/2
+```
+
+```{r}
+a^b
+a %% b
+```
+
+```{r}
+b^bL
+aL%%b
+```
+
+```{r}
+twDateTime 
+twDateTime+1
+```
+
+```{r}
+twDateTime 
+twDateTime-2
+```
+
+```{r}
+future<-ymd("2019-08-11")
+future
+```
+
+```{r}
+past<-ymd("2000-02-01")
+past
+```
+
+```{r}
+future-past
+class(future-past)
+```
+
+```{r}
+startingDate <- ymd("2000-02-17")
+```
+
+```{r}
+startingDate + years(1)
+```
+
+```{r}
+startingDate + dyears(1)
 ```
 
