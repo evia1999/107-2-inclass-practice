@@ -39,7 +39,48 @@ str_detect(animal,"tiger")
 ```{r}
 studentID<-c(
   '410177115','410176080','410174233','410177011','410182045','410176014')
+studentID
 str_sub(studentID,5,6)
 str_sub(studentID,2,4)
+str_sub(studentID,9)
+```
+
+```{r}
+month <- c("3","4","2")
+day <- c("11","5","7")
+char1 <- c("月","月","月")
+char2 <- c("日","日","日")
+month
+char1
+day 
+char2
+str_c(month,char1,day,char2)
+```
+
+```{r}
+str_c(month,c("月"),day,c("日"))
+str_c(month,"月",day,"日")
+```
+
+```{r}
+month
+day
+str_c(month,day, sep="-")
+```
+
+```{r}
+grade <- c("3","4","1")
+class <- c("3","2","3")
+char3 <- c("年","年","年")
+char4 <- c("班","班","班")
+grade
+char3
+class
+char4
+str_c(grade,char3,class,char4)
+```
+
+```{r}
+str_c(grade,"年",class,"班")
 ```
 
