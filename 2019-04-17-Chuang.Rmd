@@ -15,3 +15,105 @@ library(stringr)
 library(lubridate)
 ```
 
+```{r}
+    姓名="王小明",
+    性別="男",
+    學年平均成績=list(
+      一年級=88,
+      二年級=90.3,
+      三年級=92,
+      四年級=95
+    )
+  )
+
+studentRecord
+```
+
+```{r}
+
+studentRecord <-
+  list(
+    學號="410073058",
+``` 
+
+```{r}
+plasticContainer <- list(
+  greenBox=c("paper","scissor"),     # location 1
+  redBox=c(1,3,2.5),               # location 2
+  blueBox=c(TRUE,FALSE,TRUE,TRUE)    # location 3
+)
+```
+ 
+```{r}
+plasticContainer[["greenBox"]] 
+plasticContainer[[1]]
+```
+
+```{r}
+plasticContainer[[2]]
+plasticContainer[["redBox"]]
+```
+
+```{r}
+x <- plasticContainer[["greenBox"]] 
+x[[1]]
+plasticContainer[["greenBox"]][[1]]
+```
+
+```{r}
+y <- plasticContainer[["redBox"]]
+y[[3]]
+plasticContainer[["redBox"]][[3]]
+```
+
+```{r}
+成績單 <- c(
+  個經=90,
+  總經=77,
+  統計=88
+)
+成績單[["個經"]]
+成績單[[1]]
+```
+
+```{r}
+studentRecord[["姓名"]]
+studentRecord[["學年平均成績"]][[3]]
+studentRecord[["學年平均成績"]][["三年級"]]
+```
+
+```{r}
+plasticContainer[c(1,2)]
+plasticContainer[c("greenBox","redBox")]
+```
+
+```{r}
+plasticContainer
+
+extract1 <- plasticContainer[c("greenBox")]
+extract1
+extract2 <- plasticContainer[[c("greenBox")]]
+extract2
+
+extract1[[1]][[1]]
+extract2[1]
+extract2[[1]]
+```
+
+```{r}
+plasticContainer
+
+length(plasticContainer)
+plasticContainer[c(T,F,T)]
+```
+
+```{r}
+成績單
+成績單[c(FALSE,TRUE,TRUE)]
+```
+
+```{r}
+plasticContainer$greenBox
+plasticContainer[["greenBox"]]
+```
+
