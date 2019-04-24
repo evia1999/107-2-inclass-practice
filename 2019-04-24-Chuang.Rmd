@@ -4,4 +4,116 @@ author: "林茂廷"
 date: "4/24/2019"
 output: html_document
 ---
+```{r}
+Vec1<- c(1:6)
+Vec1
+```
+
+```{r}
+Mat1 <- matrix(
+  c(1:6), 2,3
+)
+Mat1
+```
+
+```{r}
+Mat2 <- matrix(
+  c("a","b","c","d"),2,2
+)
+Mat2
+class(Mat2)
+typeof(Mat2)
+a<-Mat2[[1]]
+c<-Mat2[[3]]
+a
+c
+```
+
+```{r}
+MAT2 <- matrix(c("a","b","c","d"),2,2)
+MAT2
+class(MAT2)
+typeof(MAT2)
+MAT2[[2]]
+MAT2[c(T,F,F,T)]
+```
+
+```{r}
+StuList <- list(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50)
+  )
+StuList 
+```
+
+```{r}
+StuDF <- data.frame(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50)
+  )
+StuDF 
+```
+
+```{r}
+typeof(StuDF)
+class(StuDF)
+```
+#data.frame()遇到變數輸入為character class時，內定會被轉成factor。
+```{r}
+StuDF[[2]][[3]]
+```
+
+```{r}
+class(StuDF$姓名)
+```
+
+```{r}
+StuDF$姓名 <- as.character(StuDF$姓名)
+class(StuDF$姓名)
+```
+
+```{r}
+StuDF2 <- data.frame(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50),
+  stringsAsFactors = FALSE
+  )
+StuDF2 
+```
+
+```{r}
+class(StuDF2$姓名)
+```
+
+
+```{r}
+StuList <- list(
+  學號=c(172,214,322,425,517),
+  姓名=c("小明","大雄","胖虎","小新","大白"),
+  成績=c(80,60,90,70,50)
+  )
+StuList 
+```
+
+```{r}
+as.data.frame(StuList) -> StuDF3
+
+class(StuDF3)
+```
+
+```{r}
+StuDF3
+```
+
+```{r}
+as.data.frame(StuList,stringsAsFactors = F) -> StuDF4
+class(StuDF4)
+```
+
+```{r}
+StuDF4
+```
 
