@@ -273,7 +273,14 @@ changeMajorStudent
 ### 7.5 學期平均成績
 請計算學號"410073409b"在101學年第1學期的平均成績（即該學期每科成績乘每科學分後加總，再除以總學分數），答案存在答案物件studentGPA(為numeric class)。
 ```{r ans75}
-# studentGPA
+(sampledTranscriptData$學號 == "410073409b" &
+  sampledTranscriptData$學年==101 &
+  sampledTranscriptData$學期==1) -> logiSelect
+  
+sum(sampledTranscriptData$學分數[logiSelect]*
+  sampledTranscriptData$學期成績[logiSelect])/sum(sampledTranscriptData$學分數[logiSelect]) -> studentGPA
+
+studentGPA
 ```
 
 > 答完後，請確認每個code chunk的最後一行皆為該題的答案物件（除非題目有另外規定），且frontmatter的studentID及studentName皆有填寫。
