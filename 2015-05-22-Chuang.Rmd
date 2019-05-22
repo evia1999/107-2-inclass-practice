@@ -113,5 +113,16 @@ library(stringr); library(lubridate)      #前面都是民國，加號是們的�
 yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911
 mm<-str_extract(twDates,"[:digit:]+(?=月)") #取緊接著月的數字們
 yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+yyyymmdd
+```
+
+```{r}
+date_convert_twYM <-function(twDates){
+  yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911
+mm<-str_extract(twDates,"[:digit:]+(?=月)") #取緊接著月的數字們
+yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+ return(yyyymmdd)
+}
+date_convert_twYM(twDates)
 ```
 
