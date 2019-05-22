@@ -1,0 +1,117 @@
+---
+title: '2015-05-22'
+author: "莊品婕"
+date: "5/22/2019"
+output: html_document
+---
+
+## midterm 6.2
+
+```{r}
+library(readr)
+invoiceList <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/invoiceList.csv",
+col_types = cols(訂單時間.以訂單時區顯示. = col_character()))
+```
+
+```{r}
+library(readr)
+invoiceList <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/invoiceList.csv",
+col_types = cols(訂單時間.以訂單時區顯示. = col_character()))
+names(invoiceList)[[2]] <- "訂單時區之下單時間"
+library(lubridate)
+```
+
+```{r}
+(invoiceList$訂單時區=="America/New_York") -> nyLogical #TRUE/FALSE
+(invoiceList$訂單時區=="Asia/Taipei") -> tpLogical #TRUE/FALCE
+
+invoiceList$nyLogical <- nyLogical
+invoiceList$tpLogical <- tpLogical
+
+ymd_hms(invoiceList$`訂單時區之下單時間`[nyLogical], #只取這是TRUE部分
+          tz="America/New_York") ->nyDateTime
+
+invoiceList$UTC時間[nyLogical] <- #挑出紐約時間換成UTC時間
+  with_tz(nyDateTime,tzone="UTC")
+
+ymd_hms(invoiceList$`訂單時區之下單時間`[tpLogical], #只取這是TRUE部分
+          tz="Asia/Taipei") ->tpDatetime
+
+invoiceList$UTC時間[tpLogical] <-
+  with_tz(tpDatetime,tzone="UTC")
+
+invoiceList 
+```
+
+```{r}
+library(readr)
+transcriptDataFinal <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/transcriptDataFinal.csv")
+
+gpa_fun <- function(studentID){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+  
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+  
+  sum(subSample$學期成績*subSample$學分數)/
+    sum(subSample$學分數) -> GPA
+  return(GPA)
+}
+```
+
+```{r}
+gpa_fun("479W9ee8e")
+gpa_fun("9efW9aea5")
+```
+
+```{r}
+ymd_hms_tzChange("1973-02-21 12:05:22"
+                 "America/New_York"
+                 "Asia/Taipei")
+```
+
+請把以America/New_York時區輸入的時間字串"1973-02-21 12:05:22"，轉成date time class, 再改成Asia/Taipei時間顯示。
+```{r}
+AmerICATIME <- ymd_hms("1973-02-21 12:05:22",tz="America/New_York")
+AmerICATIME1 <-with_tz(AmerICATIME,tzone = "Asia/Taipei")
+AmerICATIME1
+```
+
+```{r}
+ymd_hms_tzChange <- function(input,fromTzone,toTzone){
+  time1 <- ymd_hms(input,tz=fromTzone)
+  answer <- with_tz(time1,tzone = toTzone)
+  return(answer)
+}
+ymd_hms_tzChange("1973-02-21 12:05:22","America/New_York","Asia/Taipei")
+```
+
+```{r}
+library(lubridate)
+ymd_hms("1973-02-21 12:05:22", tz="America/New_York") -> fromDateTime
+with_tz(fromDateTime,tzone="Asia/Taipei") -> toDateTime
+toDateTime
+
+ymd_hms_tzChange <- function(input,fromTzone,toTzone){
+  time1 <- ymd_hms(input,tz=fromTzone)
+  answer <- with_tz(time1,tzone = toTzone)
+  return(answer)
+}
+ymd_hms_tzChange("1973-02-21 12:05:22","America/New_York","Asia/Taipei")
+```
+
+```{r}
+library(stringr)
+sample(99:103,15,replace = T)-> yy
+sample(1:12,15,replace=T)-> mm
+str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates
+
+twDates
+```
+
+```{r}
+library(stringr); library(lubridate)      #前面都是民國，加號是們的意思(數字們)
+yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911
+mm<-str_extract(twDates,"[:digit:]+(?=月)") #取緊接著月的數字們
+yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+```
+
