@@ -150,3 +150,33 @@ date_convert_twYM <-function(twDates,dd="01"){
 date_convert_twYM(twDates,dd="30")
 ```
 
+```{r}
+library(lubridate)
+
+#沒有input
+now2 <- function(){
+  currentDateTime <- Sys.time()
+  hh<-hour(currentDateTime)
+  mm<-minute(currentDateTime)
+  cat("現在是",hh,"點",mm,"分")
+}
+##沒有return，cat是在螢幕顯現
+```
+
+
+```{r}
+now2()
+now2() ->xx
+```
+
+```{r}
+textbookURL<-function(){
+  browseURL("https://via.hypothes.is/https://bookdown.org/tpemartin/ntpu-programming-for-data-science/")
+}
+
+```
+
+```{r}
+textbookURL()
+```
+
