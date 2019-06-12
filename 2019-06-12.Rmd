@@ -9,3 +9,141 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+load(url("https://www.dropbox.com/s/duh5aaqgl2f5m3z/loopTranscriptData.Rda?raw=1"))
+studentIds <- unique(transcriptDataFinal$學號) # 全部可能學號
+studentIds5 <- studentIds[1:5] # 前5筆學號
+```
+
+```{r}
+studentIds5
+seq_along(studentIds5)
+length(studentIds5)
+1:length(studentIds5)
+```
+
+
+```{r}
+studentIds5
+```
+
+
+#範例一
+任務:針對studendsid5裡的每一個學號進行print()
+
+
+
+##body
+把任務定義在對「第i個」
+```{r}
+i <- 1
+
+print(studentIds5[[i]])
+```
+
+##for loop
+
+```{r}
+for(i in seq_along(studentIds5)){
+  print(studentIds5[[i]])
+}
+```
+ 
+```{r}
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+```
+ 
+```{r}
+i <- 1
+print(gmailAddress[[i]])
+```
+
+```{r}
+library(stringr)
+for(i in seq_along(gmailAddress)){
+  if (str_detect(gmailAddress[[i]],"@gmail.com")){
+    print(gmailAddress[[i]])}
+  else{
+    print(str_c(gmailAddress[[i]],"@gmail.com"))
+  }
+
+}
+```
+
+```{r}
+library(stringr)
+for(i in seq_along(gmailAddress)){
+  if(!(str_detect(gmailAddress[[i]],"@gmali.com"))){
+    gmailAddress[[i]] <- str_c(gmailAddress[[i]],"@gmali.com")
+  }
+}
+gmailAddress
+```
+
+```{r}
+# 開始設定
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+cat("起始狀況\n")
+gmailAddress
+
+# for loop
+for(i in seq_along(gmailAddress)){
+  if(!str_detect(gmailAddress[[i]],"@gmail.com")){
+    correctGmailAddress <-
+      str_c(gmailAddress[[i]],"@gmail.com")
+    gmailAddress[[i]] <- correctGmailAddress
+  }
+}
+
+cat("修正後狀況\n")
+gmailAddress
+```
+
+```{r}
+load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
+```
+
+
+任務0 :print 每個 commmit 的 author
+
+##sequence source
+```{r}
+commitHistory
+```
+
+##body
+```{r}
+i<-1
+print(commitHistory[[1]][["commit"]][["author"]][["name"]])
+```
+
+## for loop
+```{r}
+for (i in commitHistory) {
+  print(commitHistory[[1]][["commit"]][["author"]][["name"]])
+}
+```
+
+任務1 :print 每個 commmit 的 commiter
+```{r}
+i <-1
+print(commitHistory[[1]]$commit$committer$name)
+```
+
+```{r}
+for (i in commitHistory) {
+  print(commitHistory[[1]]$commit$committer$name)
+  
+}
+```
+
